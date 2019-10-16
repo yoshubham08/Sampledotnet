@@ -14,7 +14,7 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 4.7.1 # Replace with specific Node version
+        dotnet-version: 4.7 # Replace with specific Node version
 
     # dotnet restore
     - name: Use NuGet to restore dependencies as well as project-specific tools that are specified in the project file
