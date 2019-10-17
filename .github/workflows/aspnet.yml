@@ -28,4 +28,4 @@ jobs:
       with: 
         app-name: dotnetappGH # Replace with your app name
         publish-profile: ${{ secrets.azureWebAppPublishProfile }} # Define secret variable in repository settings as per action documentation
-        package: './SampleWebApplication.zip'
+        package: 'D:/a/Sampledotnet/Sampledotnet/SampleWebApplication/obj/Release/Package/SampleWebApplication.zip'
