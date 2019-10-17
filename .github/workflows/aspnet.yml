@@ -19,12 +19,12 @@ jobs:
       run: nuget restore
       
     # dotnet msbuild and publish
-    #- name: msBuild with dotnet
-    #  run: 'C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\MSBuild\Current\bin\msbuild.exe' -p:DeployOnBuild=true -p:WebPublishMethod=Package -p:PackageAsSingleFile=true -p:SkipInvalidConfigurations=true -p:Configuration=Release
+    - name: msBuild with dotnet
+      run: C:\"Program Files (x86)"\"Microsoft Visual Studio"\2017\Enterprise\MSBuild\Current\bin\msbuild.exe' -p:DeployOnBuild=true -p:WebPublishMethod=Package -p:PackageAsSingleFile=true -p:SkipInvalidConfigurations=true -p:Configuration=Release
     
     # dotnet build and publish
-    - name: Build with dotnet
-      run: dotnet build --configuration Release
+    #- name: Build with dotnet
+    #  run: dotnet build --configuration Release
     - name: dotnet publish
       run: |
         dotnet publish -c Release -o myapp
