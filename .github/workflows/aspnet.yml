@@ -25,13 +25,13 @@ jobs:
     # dotnet build and publish
     #- name: Build with dotnet
     #  run: dotnet build --configuration Release
-    - name: dotnet publish
-      run: |
-        dotnet publish -c Release -o myapp
+    #- name: dotnet publish
+    #  run: |
+     #   dotnet publish -c Release -o myapp
         
     - name: 'Run Azure webapp deploy action using publish profile credentials'
       uses: azure/webapps-deploy@v1
       with: 
         app-name: dotnetappGH # Replace with your app name
         publish-profile: ${{ secrets.azureWebAppPublishProfile }} # Define secret variable in repository settings as per action documentation
-        package: './myapp'
+        package: '.'
