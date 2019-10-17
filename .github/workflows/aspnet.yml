@@ -20,6 +20,7 @@ jobs:
       
     # dotnet msbuild and publish
     - name: msBuild with dotnet
+      shell: pwsh
       run: C:\"Program Files (x86)"\"Microsoft Visual Studio"\2019\Enterprise\MSBuild\Current\Bin\msbuild.exe .\SampleWebApplication.sln /p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:Configuration=Release
       
     # dotnet build and publish
