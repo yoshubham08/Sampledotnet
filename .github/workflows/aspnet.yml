@@ -18,20 +18,14 @@ jobs:
     - name: Use NuGet to restore dependencies as well as project-specific tools that are specified in the project file
       run: nuget restore
       
-    # dotnet msbuild and publish
+    # dotnet msbuild 
     - name: msBuild with dotnet
+      shell: pwsh
       run: C:\"Program Files (x86)"\"Microsoft Visual Studio"\2019\Enterprise\MSBuild\Current\Bin\msbuild.exe .\SampleWebApplication.sln /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=True /p:publishUrl=.\WebAppContent /p:platform="any cpu" /p:configuration="release"
       
-    # dotnet build and publish
-    #- name: Build with dotnet
-    #  run: dotnet build --configuration Release
-    #- name: dotnet publish
-    #  run: |
-     #   dotnet publish -c Release -o myapp
-        
     - name: 'Run Azure webapp deploy action using publish profile credentials'
       uses: azure/webapps-deploy@v1
       with: 
         app-name: dotnetappGH # Replace with your app name
         publish-profile: ${{ secrets.azureWebAppPublishProfile }} # Define secret variable in repository settings as per action documentation
-        package: '.'
+        package: './SampleWebApplication.zip'
