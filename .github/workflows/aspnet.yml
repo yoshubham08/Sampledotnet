@@ -25,7 +25,7 @@ jobs:
       uses: warrenbuckley/Setup-MSBuild@v1
 
     - name: MSBuild
-      run: msbuild .\SampleWebApplication.sln -t:rebuild /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=True /p:publishUrl=".\\WebAppContent
+      run: msbuild .\SampleWebApplication.sln -t:rebuild /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=True /p:publishUrl=".\\WebAppContent"
        
     - name: 'Run Azure webapp deploy action using publish profile credentials'
       uses: azure/webapps-deploy@v1
